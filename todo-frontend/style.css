@@ -1,0 +1,405 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 60px;
+}
+
+/* Main Container */
+.container {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+#image{
+  height: 2px;
+  width:2px;
+  /* border-radius: 50%; */
+  /* position: absolute; */
+}
+/* Heading */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #c32380;
+}
+
+/* Input Area */
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+button {
+  background: #28a745;
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #218838;
+}
+
+/* Task List */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Task Item */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 12px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+}
+
+.todo-item:hover {
+  transform: scale(1.01);
+}
+
+/* Checkbox */
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #03c8fe;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.checkmark.active {
+  border-color: #28a745;
+  background-color: #28a745;
+  background-image: url('images/whitecorrectsign-removebg-preview.png'); /* make sure this icon exists! */
+}
+
+/* Task Text */
+.task-title {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #047a8cf5;
+}
+
+.task-title.completed {
+  text-decoration: line-through;
+  color: rgb(25, 179, 244);
+}
+
+/* ==== FILTER BUTTONS ==== */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  border: none;
+  background-color: #da1a9a;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.filter-btn:hover {
+  background-color: #18c7c4;
+}
+
+.filter-btn.active {
+  background-color: #900eb4;
+  color: white;
+}
+
+/* ==== DARK MODE SWITCH ==== */
+
+
+.img-switch {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 36px;
+}
+
+
+
+.img-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+
+.img-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 69%;
+  height: 69%;
+  background-color: #25292b;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0px 0px;
+  box-sizing: border-box;
+}
+
+.moon-img {
+  width: 23px;
+  height: 23px;
+  position:absolute;
+  left: 0;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.sun-img{
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  position:absolute;
+  right: 0;
+}
+
+
+
+.toggle-icon:hover {
+  transform: scale(1.1);
+}
+
+
+/* Move moon to front on dark mode */
+.img-switch input:checked + .img-slider .moon-img {
+  transform: scale(1.2);
+}
+
+.img-switch input:checked + .img-slider .sun-img {
+  transform: scale(0.9);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #28a745;
+}
+
+input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+/* ==== DARK MODE ==== */
+body.dark {
+  background: linear-gradient(120deg, #042b4c, #2c2c2c);
+  color: white;
+}
+
+body.dark .container {
+  background: rgba(255, 255, 255, 0.082);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.552);
+}
+
+body.dark .container h1
+{
+  color:white;
+}
+
+body.dark .task-title {
+  color: #ffffff;
+}
+
+body.dark .task-title.completed {
+  color: #19eb9af3;
+}
+
+body.dark .filter-btn {
+  background-color: #444;
+  color: white;
+}
+
+body.dark .filter-btn.active {
+  background-color: #28a745;
+}
+
+body.dark input[type="text"] {
+  background-color: #333;
+  color: white;
+  border: 1px solid #f6f3f3;
+}
+
+body.dark input[type="text"]::placeholder{  
+  color:rgba(255, 255, 255, 0.705);  
+}
+
+#themeTransition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--transition-color, rgba(255, 255, 255, 0));
+  z-index: 999;
+  pointer-events: none;
+  clip-path: circle(0% at 0 50%);
+  transition: clip-path 0.41s ease-in-out;
+}
+
+
+.header {
+  display: flex;
+  align-items:center;
+  /* gap: 2px; */
+  justify-content: center;
+  margin-bottom: 15px;
+  /* background: #000; */
+}
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* box-shadow: 0 0 5px rgba(0,0,0,0.2); */
+}
+
+#todo
+{
+  margin-right: 135px;
+  margin-bottom: -10px;
+}
+
+.logo-img
+{
+  margin-top: 10px;
+}
+
+
+/* delete button css */
+/* .delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ff4d4d;
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.delete-btn {
+  width: 24px;
+  height: 24px;
+}
+
+
+.delete-btn:hover {
+  transform: scale(1.2);
+} */
+
+.delete-btn {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+}
+
+
+/* edit button css */
+
+.edit-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+.save-btn, .cancel-btn {
+  padding: 6px 10px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+
+
